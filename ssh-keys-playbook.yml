@@ -4,7 +4,7 @@
 
   vars:
     ssh_user: "ansible"
-    ssh_pass: "khoican123"
+    ssh_pass: "passwordOFansible"
 
   tasks:
   - user: name={{ ssh_user }} comment="{{ ssh_user }} User" group=sudo shell="/bin/bash" password={{ ssh_pass }} update_password="always"
