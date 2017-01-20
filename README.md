@@ -1,5 +1,5 @@
 # ansible-playbook-ssh-keys
-Ansible playbook create user &amp; ssh key to remote servers
+Ansible playbook create user &amp; add ssh key to remote servers
 
 # How it works
 Ansible playbook help to create user ansible & add ssh key to remote servers
