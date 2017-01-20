@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    ssh_user: "ansible"
+    ssh_pass: "khoican123"
+
+  tasks:
+  - user: name={{ ssh_user }} comment="{{ ssh_user }} User" group=sudo shell="/bin/bash" password={{ ssh_pass }} update_password="always"
+
+  - name: Placing key for  user
+    authorized_key: user={{ ssh_user }} key="{{ lookup('file', './files/authorized_keys.ansible.pub') }}"
+
+  - name: Sudoers | Update sudoers file and validate
+    lineinfile: "dest=/etc/sudoers
+      insertafter=EOF
+      line='{{ ssh_user }} ALL=(ALL) NOPASSWD: ALL'
+      regexp='{{ ssh_user }} ALL=(ALL) NOPASSWD: ALL'
+      state=present"
