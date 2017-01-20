@@ -8,6 +8,7 @@ Ansible playbook help to create user ansible & add ssh key to remote servers
 
 ## Create SSH keypair
 mkdir -p files
+
 ssh-keygen -t rsa -f ./files/authorized_keys.ansible
 
 ## Run playbook on target servers
